@@ -1,4 +1,4 @@
-*# Heavenly Delusion - Tackling the Global Mental Health Crisis Through AI
+# Heavenly Delusion - Tackling the Global Mental Health Crisis Through AI
 
 ## 🏆 E-Summit 2025 Hackathon Submission
 **Breaking barriers. Changing lives. Democratizing mental healthcare for all.**
@@ -153,4 +153,4 @@ Heavenly Delusion was developed specifically for the E-Summit 2025 Hackathon to 
 - Implementation of mood tracking and analysis dashboard
 - Development of crisis detection and intervention protocols
 - Expansion to voice-based interaction for increased accessibility
-- Clinical trials in partnership with mental health institutions*
+- Clinical trials in partnership with mental health institutions
