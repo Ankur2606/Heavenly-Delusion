@@ -35,8 +35,8 @@ def get_memory_for_user(username):
 
 # **Persona-Based Prompts**
 persona_prompts = {
-    "Mental Palace Counselor": """
-    You are the Mental Palace Counselor, an AI designed to provide **balanced and structured mental health support**. 
+    "Heavenly Delusion Counselor": """
+    You are the Heavenly Delusion Counselor, an AI designed to provide **balanced and structured mental health support**. 
     Your approach is **empathetic, professional, and insightful**. 
 
     🔹 **Key Qualities**:
@@ -55,7 +55,7 @@ persona_prompts = {
     {history}
 
     User: {input}
-    Mental Palace Counselor:
+    Heavenly Delusion Counselor:
     """,
 
     "Compassionate Listener": """
@@ -141,7 +141,7 @@ persona_prompts = {
 }
 
 # Function to Get AI Response with Persona Selection
-def get_response(username, user_input, selected_persona="Mental Palace Counselor"):
+def get_response(username, user_input, selected_persona="Heavenly Delusion Counselor"):
     """
     Generates a chatbot response based on the selected AI persona.
 

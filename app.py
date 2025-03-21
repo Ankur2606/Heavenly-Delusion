@@ -6,11 +6,11 @@ from chatbot import get_response
 # Initialize database
 init_db()
 
-st.set_page_config(page_title="Mental Palace", page_icon="💬", layout="wide")
+st.set_page_config(page_title="Heavenly Delusion", page_icon="💬", layout="wide")
 
 
 st.sidebar.image("img/logo.jpg", width=200)  # Sidebar Logo
-st.title("Mental Palace - AI Mental Health Companion")
+st.title("Heavenly Delusion - AI Mental Health Companion")
 
 # **Login/Register System**
 show_auth_page()
@@ -25,7 +25,7 @@ if "authenticated" in st.session_state and st.session_state["authenticated"]:
     # **Persona Selection**
     st.sidebar.markdown("### 🧠 Choose Your AI Persona")
     persona_options = {
-        "Mental Palace Counselor": "The balanced and supportive AI that provides empathetic yet structured mental health support.",
+        "Heavenly Delusion Counselor": "The balanced and supportive AI that provides empathetic yet structured mental health support.",
         "Compassionate Listener": "A deeply empathetic AI that focuses on active listening and validation.",
         "Motivational Coach": "A high-energy AI that encourages and empowers users to take action for self-improvement.",
         "CBT Guide": "A rational AI that helps reframe negative thoughts using cognitive behavioral techniques."
