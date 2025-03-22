@@ -20,7 +20,7 @@ Heavenly Delusion tackles this emergency head-on by providing:
 ---
 
 ## 🚀 Features
-- **User Authentication**: Military-grade secure login and registration system.
+- **User Authentication**: Secure login and registration system.
 - **Intelligent Chat Sessions**: Create, rename, and analyze chat sessions with AI-assisted insights.
 - **Advanced Memory & Personalization**: Our AI builds comprehensive psychological profiles to deliver increasingly personalized experiences over time.
 - **Multiple Therapeutic Personas**:
@@ -28,7 +28,7 @@ Heavenly Delusion tackles this emergency head-on by providing:
   - **Compassionate Listener**: Deep empathy and validation for emotional processing.
   - **Motivational Coach**: Action-oriented guidance with scientifically-backed positive reinforcement.
   - **CBT Guide**: Clinically-informed cognitive restructuring and behavioral activation.
-- **Secure Medical-Grade Database**: HIPAA-compliant SQLite implementation for storing user data.
+- **Secure Medical-Grade Database**: SQLite implementation for storing user data.
 - **Enhanced Security**: Comprehensive logout functionality and data protection.
 - **Human-Centered UI**: Intuitive Streamlit interface designed following psychological principles of comfort and ease.
 
