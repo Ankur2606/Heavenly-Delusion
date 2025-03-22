@@ -18,8 +18,8 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 # Initialize AI model
 chat_model = ChatGoogleGenerativeAI(
-    # model="gemini-2.0-pro-exp-02-05",
-    model="gemini-2.0-flash",
+    model="gemini-2.0-pro-exp-02-05",
+    # model="gemini-2.0-flash",
     google_api_key=GEMINI_API_KEY,
     max_output_tokens=3100,
     temperature=0.7
