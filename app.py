@@ -9,7 +9,7 @@ init_db()
 st.set_page_config(page_title="Heavenly Delusion", page_icon="💬", layout="wide")
 
 
-st.sidebar.image("img/logo.jpg", width=200)  # Sidebar Logo
+st.sidebar.image("img/logo.png", width=200)  # Sidebar Logo
 st.title("Heavenly Delusion - AI Mental Health Companion")
 
 # Initialize chat message history in session state if not present
