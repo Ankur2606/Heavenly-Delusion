@@ -1,4 +1,4 @@
-# Heavenly Delusion - Tackling the Global Mental Health Crisis Through AI
+# Heavenly Delusion - Tackling the Global Mental Health Crisis Through AI - Leveraging Nebius Studio
 
 
 ## 🌍 The Crisis We're Solving
@@ -40,7 +40,7 @@ streamlit==1.42.2
 langchain==0.3.19
 langchain-community==0.3.18
 langchain-core==0.3.37
-langchain-google-genai==2.0.10
+langchain-openai
 openai
 ```
 

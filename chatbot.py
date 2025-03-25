@@ -1,36 +1,38 @@
 import os
 from dotenv import load_dotenv
 from langchain.memory import ConversationBufferMemory
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
-import google.generativeai as genai
 from langchain.chains import LLMChain
+from openai import OpenAI
 
 # Load API key
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY")
 
-if not GEMINI_API_KEY:
-    raise ValueError("Missing GEMINI_API_KEY. Set it in the .env file.")
+if not NEBIUS_API_KEY:
+    raise ValueError("Missing NEBIUS_API_KEY. Set it in the .env file.")
 
-# Configure Gemini API
-genai.configure(api_key=GEMINI_API_KEY)
-
-# Initialize AI model
-chat_model = ChatGoogleGenerativeAI(
-    model="gemini-2.0-pro-exp-02-05",
-    # model="gemini-2.0-flash",
-    google_api_key=GEMINI_API_KEY,
-    max_output_tokens=3100,
-    temperature=0.7
+# Configure Nebius OpenAI client
+client = OpenAI(
+    base_url="https://api.studio.nebius.com/v1/",
+    api_key=NEBIUS_API_KEY
 )
 
+# Initialize AI model with LangChain ChatOpenAI
+chat_model = ChatOpenAI(
+    model_name="Qwen/Qwen2.5-32B-Instruct",
+    openai_api_key=NEBIUS_API_KEY,
+    openai_api_base="https://api.studio.nebius.com/v1/",
+    max_tokens=3100,
+    temperature=0.7
+)
 
 user_memory = {}  
 
 def get_memory_for_user(username):
     """Retrieve or create memory for a user."""
-    if username not in user_memory:
+    if (username not in user_memory):
         user_memory[username] = ConversationBufferMemory(memory_key="history", return_messages=True)
     return user_memory[username]
 
