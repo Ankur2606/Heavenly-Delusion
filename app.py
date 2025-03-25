@@ -10,7 +10,7 @@ st.set_page_config(page_title="Heavenly Delusion", page_icon="💬", layout="wid
 
 
 st.sidebar.image("img/logo.png", width=200)  # Sidebar Logo
-st.title("Heavenly Delusion - AI Mental Health Companion")
+st.title("Heavenly Delusion - AI Mental Health Companion - Powered by Nebius AI Studio")
 
 # Initialize chat message history in session state if not present
 if "messages" not in st.session_state:
