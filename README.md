@@ -76,9 +76,9 @@ pip install -r requirements.txt
 ```
 
 ### 4️⃣ Set Up Environment Variables
-Create a `.env` file in the root directory and add your Gemini API key:
+Create a `.env` file in the root directory and add your Nebius API key:
 ```plaintext
-GEMINI_API_KEY=your_google_api_key_here
+NEBIUS_API_KEY=your_nebius_api_key_here
 ```
 
 ### 5️⃣ Run the Application
