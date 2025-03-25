@@ -1,7 +1,5 @@
 # Heavenly Delusion - Tackling the Global Mental Health Crisis Through AI
 
-## 🏆 E-Summit 2025 Hackathon Submission
-**Breaking barriers. Changing lives. Democratizing mental healthcare for all.**
 
 ## 🌍 The Crisis We're Solving
 In today's hyperconnected yet increasingly isolated world, **1 in 4 people globally suffer from mental health conditions** with over 75% receiving NO treatment. The economic impact exceeds $1 trillion annually in lost productivity, while the human cost is immeasurable. The COVID-19 pandemic has only exacerbated this crisis, with anxiety and depression increasing by 25% worldwide.
@@ -43,8 +41,7 @@ langchain==0.3.19
 langchain-community==0.3.18
 langchain-core==0.3.37
 langchain-google-genai==2.0.10
-google-generativeai==0.8.4
-google-ai-generativelanguage==0.6.15
+openai
 ```
 
 To install all dependencies, run:
@@ -58,8 +55,8 @@ pip install -r requirements.txt
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/TarikBugraAy/mental-palace-chatbot.git
-cd mental-palace-chatbot
+git clone https://github.com/Ankur2606/Heavenly-Delusion.git
+cd Heavenly-Delusion
 ```
 
 ### 2️⃣ Create a Virtual Environment
@@ -99,7 +96,7 @@ After running the above command, visit:
 
 ## 🏗️ Project Structure
 ```plaintext
-MentalPalace/
+Heavenly-Delusion/
 │── database.py      # Handles SQLite operations
 │── auth.py          # Manages user authentication
 │── chatbot.py       # AI chatbot logic and memory system
@@ -131,8 +128,8 @@ MentalPalace/
 
 ---
 
-## 🌟 Why We Built This - E-Summit 2025
-Heavenly Delusion was developed specifically for the E-Summit 2025 Hackathon to address the critical global mental health crisis. Our team combines expertise in AI, psychology, and healthcare to create a solution that:
+## 🌟 Why We Built This 
+Heavenly Delusion was developed specifically for the Hackathon to address the critical global mental health crisis. Our team combines expertise in AI, psychology, and healthcare to create a solution that:
 
 - **Democratizes Access**: Bringing quality mental health support to billions
 - **Innovates Care Delivery**: Using AI to personalize and scale emotional support
