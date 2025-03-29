@@ -1,9 +1,5 @@
 import os
 from dotenv import load_dotenv
-from langchain.memory import ConversationBufferMemory
-from langchain_openai import ChatOpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from openai import OpenAI
 
 # Load API key
@@ -13,22 +9,19 @@ NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY")
 if not NEBIUS_API_KEY:
     raise ValueError("Missing NEBIUS_API_KEY. Set it in the .env file.")
 
-
-# Initialize AI model with LangChain ChatOpenAI
-chat_model = ChatOpenAI(
-    model_name="Qwen/Qwen2.5-32B-Instruct",
-    openai_api_key=NEBIUS_API_KEY,
-    openai_api_base="https://api.studio.nebius.com/v1/",
-    max_tokens=3100,
-    temperature=0.7
+# Initialize OpenAI client
+client = OpenAI(
+    api_key=NEBIUS_API_KEY,
+    base_url="https://api.studio.nebius.com/v1/"
 )
 
-user_memory = {}  
+# Store conversation histories for users
+user_memory = {}
 
 def get_memory_for_user(username):
     """Retrieve or create memory for a user."""
-    if (username not in user_memory):
-        user_memory[username] = ConversationBufferMemory(memory_key="history", return_messages=True)
+    if username not in user_memory:
+        user_memory[username] = []
     return user_memory[username]
 
 # **Persona-Based Prompts**
@@ -151,17 +144,37 @@ def get_response(username, user_input, selected_persona="Heavenly Delusion Couns
     # Get user memory
     memory = get_memory_for_user(username)
     
-    # Select persona prompt
-    prompt_template = PromptTemplate(
-        input_variables=["history", "input"],
-        template=persona_prompts[selected_persona]
+    # Construct conversation history text
+    history_text = ""
+    for message in memory:
+        if message["role"] == "user":
+            history_text += f"User: {message['content']}\n"
+        else:
+            history_text += f"{selected_persona}: {message['content']}\n"
+    
+    # Prepare system message with persona prompt
+    system_prompt = persona_prompts[selected_persona].replace("{history}", history_text).split("User: {input}")[0]
+    
+    # Create messages for the API call
+    messages = [
+        {"role": "system", "content": system_prompt},
+        *memory,
+        {"role": "user", "content": user_input}
+    ]
+    
+    # Call the OpenAI API
+    response = client.chat.completions.create(
+        model="Qwen/Qwen2.5-32B-Instruct",
+        messages=messages,
+        max_tokens=3100,
+        temperature=0.7
     )
-
-    # Create a new LLM Chain with the selected prompt
-    chat_chain = LLMChain(
-        llm=chat_model,
-        prompt=prompt_template,
-        memory=memory
-    )
-
-    return chat_chain.invoke({"input": user_input})["text"]
+    
+    # Extract the response text
+    response_text = response.choices[0].message.content
+    
+    # Update the memory with this exchange
+    memory.append({"role": "user", "content": user_input})
+    memory.append({"role": "assistant", "content": response_text})
+    
+    return response_text
