@@ -13,11 +13,6 @@ NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY")
 if not NEBIUS_API_KEY:
     raise ValueError("Missing NEBIUS_API_KEY. Set it in the .env file.")
 
-# Configure Nebius OpenAI client
-client = OpenAI(
-    base_url="https://api.studio.nebius.com/v1/",
-    api_key=NEBIUS_API_KEY
-)
 
 # Initialize AI model with LangChain ChatOpenAI
 chat_model = ChatOpenAI(
